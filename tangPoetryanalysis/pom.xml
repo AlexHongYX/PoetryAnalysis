@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xiaoaxiao</groupId>
+    <artifactId>tangPoetry-analysis</artifactId>
+    <version>1.0.0</version>
+
+    <!--打包类型-->
+    <packaging>jar</packaging>
+    <!--项目名称-->
+    <name>tangPoetry-analysis</name>
+
+    <!--项目描述-->
+    <description>
+        该项目用于分析唐诗的相关信息
+    </description>
+
+    <!--开发者信息-->
+    <developers>
+        <developer>
+            <id>001</id>
+            <name>xiaoaxiao</name>
+            <email>921721870@qq.com</email>
+            <!--开发者角色-->
+            <roles>
+                <!--创建者-->
+                <role>Creator</role>
+                <!--开发者-->
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <!--基本属性-->
+    <properties>
+        <!--字符编码-->
+        <encoding>UTF-8</encoding>
+        <!--java版本-->
+        <java.version>1.8</java.version>
+        <!--maven项目编译与运行时采取的java版本-->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+    </properties>
+
+    <!--依赖配置-->
+    <dependencies>
+        <!--配置数据库驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+
+        <!--配置数据库连接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.12</version>
+        </dependency>
+
+        <!--中文文本分词-->
+        <dependency>
+            <groupId>org.ansj</groupId>
+            <artifactId>ansj_seg</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+
+        <!--引入Spark-java，后期最好换为Servlet-->
+        <!--基于jetty嵌入式java Web容器开发的Web应用框架-->
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-core</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <!--String<=>Object之间的相互转换-->
+        <!--对象和String相互转换<=>Java对象和JavaScript对象(直接解析字符串)-->
+        <!--tqltqltqltql，类似于序列化-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+
+        <!--网页解析工具-->
+        <dependency>
+            <groupId>net.sourceforge.htmlunit</groupId>
+            <artifactId>htmlunit</artifactId>
+            <version>2.18</version>
+
+            <!--如果依赖的jar包是相同的，但是版本不同，可以使用exclusion将当前依赖的某个小jar包删除掉-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-util</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+
+        <!--通过添加注解，自动生成getter，setter-->
+        <!--编译时自动生成代码的库-->
+        <!--步骤：-->
+        <!--    1、需要IDEA的lombok插件 -->
+        <!--    2、设置中启用注解处理器-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.22</version>
+
+            <!--编译时存在即可-->
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!--构建-->
+    <build>
+        <plugins>
+            <!--配置打包插件，设置主类和classpath-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!--保证依赖的jar包都可以被程序正常的访问-->
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib</classpathPrefix>
+
+                            <!--设置主类-->
+                            <mainClass>com.xiaoaxiao.tang_peotry_analysis.TangPoetryAnalyzeApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!--配置依赖插件，复制程序依赖的jar包放在lib目录中-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependency</id>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <includeScope>compile</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+
+
+
+
+
+
+</project>
