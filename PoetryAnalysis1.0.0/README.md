@@ -28,15 +28,15 @@
 
 + #### 具体实现：
 
-  ​	![](images\框架.png)
+  ​	![](https://github.com/xiaomessi/PoetryAnalysis/blob/master/PoetryAnalysis1.0.0/images/2.png)
 
   
 
 + #### 项目效果：
 
-  ![](images\柱状图.png)
+  ![](https://github.com/xiaomessi/PoetryAnalysis/blob/master/PoetryAnalysis1.0.0/images/3.png)
 
-  ![](images\词云.png)
+  ![](https://github.com/xiaomessi/PoetryAnalysis/blob/master/PoetryAnalysis1.0.0/images/1.png)
 
 + #### 扩展点：
 
