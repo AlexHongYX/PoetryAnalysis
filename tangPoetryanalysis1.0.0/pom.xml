@@ -73,7 +73,7 @@
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
-            <version>2.3</version>
+            <version>2.7.2</version>
         </dependency>
         <!--String<=>Object之间的相互转换-->
         <!--对象和String相互转换<=>Java对象和JavaScript对象(直接解析字符串)-->
