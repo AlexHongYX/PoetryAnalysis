@@ -8,12 +8,13 @@
 
 + #### 涉及技术：
 
-  + Java线程池，Java集合框架，工厂模式与单例模式的结合，JDBC编程。
+  + Java线程池，Java集合框架，工厂模式与单例模式的结合，JDBC编程
   + 数据库设计与开发，druid数据库连接池
   + HTML，CSS，JavaScript，JQuery，Ajax
-  + 第三方框架：htmlunit网页解析，ansj中文分词，sparkjavaWeb应用框架涉及技术，echarts可视化图表设计
+  + Tomcat服务器+Servlet技术
+  + 第三方框架：htmlunit网页解析，ansj中文分词，echarts可视化图表设计等
 
-+ #### 开发工具：
++ #### 开发工具
 
   + IntelliJ IDEA
   + Maven
