@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!--作者+作品数量-->
+    <servlet>
+        <servlet-name>AuthorCountServlet</servlet-name>
+        <servlet-class>com.xiaoaxiao.tang_peotry_analysis.servlet.AuthorCountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthorCountServlet</servlet-name>
+        <url-pattern>/analyze/author_count</url-pattern>
+    </servlet-mapping>
+
+    <!--词语+词语数量-->
+    <servlet>
+        <servlet-name>WordCloudServlet</servlet-name>
+        <servlet-class>com.xiaoaxiao.tang_peotry_analysis.servlet.WordCloudServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WordCloudServlet</servlet-name>
+        <url-pattern>/analyze/word_cloud</url-pattern>
+    </servlet-mapping>
+    
+    <!--关闭爬虫-->
+    <servlet>
+        <servlet-name>CrawlerStopServlet</servlet-name>
+        <servlet-class>com.xiaoaxiao.tang_peotry_analysis.servlet.CrawlerStopServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CrawlerStopServlet</servlet-name>
+        <url-pattern>/crawler/stop</url-pattern>
+    </servlet-mapping>
+</web-app>
