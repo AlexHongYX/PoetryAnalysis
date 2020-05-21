@@ -93,7 +93,7 @@
         <dependency>
             <groupId>net.sourceforge.htmlunit</groupId>
             <artifactId>htmlunit</artifactId>
-            <version>2.18</version>
+            <version>2.37.0</version>
 
             <!--如果依赖的jar包是相同的，但是版本不同，可以使用exclusion将当前依赖的某个小jar包删除掉-->
             <exclusions>
